@@ -1,3 +1,3 @@
 import { sayHi } from "./something";
 
-console.log(sayHi("Hello"));
+console.log(sayHi("Wazap"));
