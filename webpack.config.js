@@ -1,39 +1,27 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
+  entry: "./src/index.js",
   module: {
     rules: [
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader",
-            options: { minimize: true }
-          }
-        ]
-      },
-      {
-        test: /\.m?js$/,
-        exclude: "/node_modeules/",
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: ["@babel/preset-env"]
-            }
-          }
-        ]
-      },
-      {
-        test: /\.jpg$/,
-        use: [{ loader: "file-loader" }]
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"]
       }
     ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
-    })
-  ]
+  resolve: {
+    extensions: ["*", ".js", ".jsx"]
+  },
+  output: {
+    path: __dirname + "/dist",
+    publicPath: "/",
+    filename: "bundle.js"
+  },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
+  devServer: {
+    contentBase: "./dist",
+    hot: true
+  }
 };
