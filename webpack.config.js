@@ -8,11 +8,15 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
+      },
+      {
+        test: /\.tsx?$/,
+        loader: "awesome-typescript-loader"
       }
     ]
   },
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
   output: {
     path: __dirname + "/dist",
