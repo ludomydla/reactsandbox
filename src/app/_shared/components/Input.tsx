@@ -7,15 +7,19 @@ type InputProps = {
   type: InputType;
   value: string;
 };
+
 type InputState = {
   value: string;
+  message?: string;
+  isValid?: boolean;
 };
 
 class Input extends React.Component<InputProps, InputState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      value: props.value
+      value: props.value,
+      isValid: true
     };
   }
 
@@ -38,7 +42,7 @@ class Input extends React.Component<InputProps, InputState> {
           type={type}
           onChange={this.handleChange}
         />
-        <span>Misc message, validation warning or whateva</span>
+        <span>{this.state.message}</span>
       </div>
     );
   }

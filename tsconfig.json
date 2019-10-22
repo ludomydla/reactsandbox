@@ -16,7 +16,7 @@
     "lib": ["es6", "es7", "dom"],
     "baseUrl": "src",
     "paths": {
-      "js/*": ["./js/*"]
+      "app/*": ["./app/*"]
     }
   },
   "exclude": ["build", "node_modules"]
