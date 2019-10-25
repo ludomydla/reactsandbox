@@ -1,7 +1,22 @@
 const webpack = require("webpack");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+const styleLoader = /*process.env.NODE_ENV !== "production"*/ false
+  ? "style-loader"
+  : MiniCssExtractPlugin.loader;
+
+const htmlOptions = {
+  template: "src/index.ejs",
+  templateParameters: {
+    title: "React playground"
+  }
+};
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    "bundle.js": ["./src/index.js"]
+  },
   module: {
     rules: [
       {
@@ -12,6 +27,10 @@ module.exports = {
       {
         test: /\.tsx?$/,
         loader: "awesome-typescript-loader"
+      },
+      {
+        test: /\.s?css$/,
+        use: [styleLoader, "css-loader", "sass-loader"]
       }
     ]
   },
@@ -20,10 +39,17 @@ module.exports = {
   },
   output: {
     path: __dirname + "/dist",
-    publicPath: "/",
     filename: "bundle.js"
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin(htmlOptions),
+    new MiniCssExtractPlugin({
+      filename: "bundle.css",
+      chunkFilename: "[id].css"
+    }),
+
+    new webpack.HotModuleReplacementPlugin()
+  ],
   devServer: {
     contentBase: "./dist",
     hot: true

@@ -1,0 +1,27 @@
+@import "../../styles/animations";
+
+.loader {
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999999;
+    background-color: rgba(30, 30, 30, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__animation {
+    width: 10vw;
+    height: 10vw;
+    min-height: 100px;
+    min-width: 100px;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loader-rotate 3s linear infinite;
+  }
+}

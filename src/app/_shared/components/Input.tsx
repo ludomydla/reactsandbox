@@ -6,6 +6,7 @@ type InputProps = {
   id: string;
   type: InputType;
   value: string;
+  onClick?: (value: string) => any;
 };
 
 type InputState = {
@@ -24,7 +25,11 @@ class Input extends React.Component<InputProps, InputState> {
   }
 
   private handleChange = (e: any) => {
-    this.setState({ value: e.target.value });
+    const value = e.target.value;
+    this.setState({ value });
+    if (this.props.onClick && typeof this.props.onClick == "function") {
+      this.props.onClick(value);
+    }
     e.preventDefault();
     e.stopPropagation();
   };
