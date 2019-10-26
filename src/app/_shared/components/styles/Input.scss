@@ -6,6 +6,7 @@
 
 .input__field {
   display: block;
+  box-sizing: border-box;
   width: 100%;
   height: $input-height;
   border: 0px;
@@ -15,6 +16,7 @@
 }
 
 .input__field::placeholder {
-  color: black;
+  color: $base-grey;
   font-size: 1.2rem;
+  opacity: 1 !important;
 }
