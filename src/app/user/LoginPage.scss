@@ -1,0 +1,19 @@
+@import "../_shared/styles/_variables";
+
+.login-form__page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-image: linear-gradient($base-pink, $base-yellow);
+}
+
+.login-form__wrapper {
+  width: 80%;
+}
+
+.login-form__logo {
+  width: 50%;
+  margin: 0 auto;
+}

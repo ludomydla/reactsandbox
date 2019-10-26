@@ -1,0 +1,20 @@
+@import "../../styles/_variables";
+
+.input {
+  margin: $input-margin;
+}
+
+.input__field {
+  display: block;
+  width: 100%;
+  height: $input-height;
+  border: 0px;
+  border-radius: $base-radius;
+  padding: $input-padding;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.input__field::placeholder {
+  color: black;
+  font-size: 1.2rem;
+}

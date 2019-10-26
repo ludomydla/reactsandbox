@@ -7,3 +7,9 @@ const app = document.getElementById("app");
 if (app) {
   ReactDOM.render(<AppRouter />, app);
 }
+
+// TODO
+// i18n
+// loading of public sources to dist
+// BE login auth
+//

@@ -1,11 +1,13 @@
 import React from "react";
 import { InputType } from "../types/definitions";
+import "./styles/Input.scss";
 
 type InputProps = {
-  label: string;
+  label?: string;
   id: string;
   type: InputType;
-  value: string;
+  value?: string;
+  placeholder?: string;
   onClick?: (value: string) => any;
 };
 
@@ -19,7 +21,7 @@ class Input extends React.Component<InputProps, InputState> {
   constructor(props: any) {
     super(props);
     this.state = {
-      value: props.value,
+      value: props.value ? props.value : "",
       isValid: true
     };
   }
@@ -35,17 +37,19 @@ class Input extends React.Component<InputProps, InputState> {
   };
 
   render() {
-    const { label, id, type } = this.props;
+    const { label, id, type, placeholder } = this.props;
 
     return (
-      <div>
-        <label>{label}</label>
+      <div className='input'>
+        {label && <label>{label}</label>}
         <input
           value={this.state.value}
           id={id}
           name={id}
           type={type}
+          placeholder={placeholder}
           onChange={this.handleChange}
+          className='input__field'
         />
         <span>{this.state.message}</span>
       </div>

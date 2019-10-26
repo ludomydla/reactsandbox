@@ -1,4 +1,5 @@
 @import "../../styles/animations";
+@import "../../styles/_variables";
 
 .loader {
   &__background {
@@ -20,8 +21,12 @@
     min-height: 100px;
     min-width: 100px;
     border-radius: 50%;
-    border: 8px solid #fff;
-    border-color: #fff transparent #fff transparent;
+    border-width: 8px;
+    border-style: solid;
+    border-top-color: $base-pink;
+    border-left-color: transparent;
+    border-bottom-color: $base-yellow;
+    border-right-color: transparent;
     animation: loader-rotate 3s linear infinite;
   }
 }
