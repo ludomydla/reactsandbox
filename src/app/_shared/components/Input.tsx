@@ -8,7 +8,7 @@ type InputProps = {
   type: InputType;
   value?: string;
   placeholder?: string;
-  onClick?: (value: string) => any;
+  onChange?: (value: string) => any;
 };
 
 type InputState = {
@@ -29,8 +29,8 @@ class Input extends React.Component<InputProps, InputState> {
   private handleChange = (e: any) => {
     const value = e.target.value;
     this.setState({ value });
-    if (this.props.onClick && typeof this.props.onClick == "function") {
-      this.props.onClick(value);
+    if (this.props.onChange && typeof this.props.onChange == "function") {
+      this.props.onChange(value);
     }
     e.preventDefault();
     e.stopPropagation();

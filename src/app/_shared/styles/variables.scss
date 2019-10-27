@@ -1,0 +1,60 @@
+// Design system Sabrina properties
+
+/* ------  COLORS ------ */
+$base-pink: #d34999;
+$base-yellow: #ecbe53;
+$base-blue: #4357ad;
+$base-green: #48a9a6;
+$base-grey: #969696;
+$base-font-color: #251605;
+$base-background: #fff;
+
+/* ------  TYPOGRAPHY ------ */
+$busy-font-family: Georgia, Times, "Times New Roman", serif;
+$clean-font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode",
+  "Lucida Sans", Tahoma, sans-serif;
+$code-font-family: "Lucida Console", "Lucida Sans Typewriter", monospace;
+
+/* ------  SPACES ------ */
+$base-radius: 2px;
+$base-gap: 16px;
+
+/* ------  MEDIA QUERIES ------ */
+$break-phone: 600px;
+$break-tablet: 1000px;
+
+@mixin respond-to($media) {
+  @if $media == phone-landscape {
+    @media only screen and (max-height: $break-phone) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $media == tablet {
+    @media only screen and (min-width: $break-phone + 1) and (max-width: $break-tablet) {
+      @content;
+    }
+  } @else if $media == tablet-landscape {
+    @media only screen and (min-width: $break-phone + 1) and (max-width: $break-tablet) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $media == desktop {
+    @media only screen and (min-width: $break-tablet + 1) {
+      @content;
+    }
+  }
+}
+
+/* ------  FORM CUSTOMIZATIONS ------ */
+$input-height: 3rem;
+$input-padding: 0 8px;
+$input-margin: 1rem 0;
+
+%input-shared-properties {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: $input-height;
+  border: 0px;
+  border-radius: $base-radius;
+  padding: $input-padding;
+  font-size: 1.25rem;
+}

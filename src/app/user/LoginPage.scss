@@ -1,4 +1,4 @@
-@import "../_shared/styles/_variables";
+@import "../_shared/styles/variables";
 
 .login-form__page {
   display: flex;
@@ -6,14 +6,33 @@
   justify-content: center;
   height: 100vh;
   width: 100%;
-  background-image: linear-gradient($base-pink, $base-yellow);
+  background-image: linear-gradient($base-grey, $base-yellow);
 }
 
 .login-form__wrapper {
   width: 80%;
+  max-width: 360px;
+
+  @include respond-to(phone-landscape) {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .login-form__logo {
   width: 50%;
   margin: 0 auto;
+
+  @include respond-to(phone-landscape) {
+    width: 33.333%;
+  }
+}
+
+.login-form__form {
+  @include respond-to(phone-landscape) {
+    width: 66.666%;
+    margin: 0 $base-gap;
+  }
 }

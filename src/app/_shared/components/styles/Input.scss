@@ -1,22 +1,16 @@
-@import "../../styles/_variables";
+@import "../../styles/variables";
 
 .input {
   margin: $input-margin;
 }
 
 .input__field {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  height: $input-height;
-  border: 0px;
-  border-radius: $base-radius;
-  padding: $input-padding;
+  @extend %input-shared-properties;
   background-color: rgba(255, 255, 255, 0.8);
 }
 
 .input__field::placeholder {
   color: $base-grey;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   opacity: 1 !important;
 }

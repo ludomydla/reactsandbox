@@ -1,4 +1,4 @@
-@import "../styles/_variables";
+@import "../styles/variables";
 
 body {
   background-color: $base-background;
@@ -17,4 +17,11 @@ a,
 button,
 input {
   font-family: $clean-font-family;
+}
+
+a {
+  color: $base-font-color;
+}
+a:visited {
+  color: $base-grey;
 }

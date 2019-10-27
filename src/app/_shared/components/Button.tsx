@@ -1,24 +1,30 @@
 import React from "react";
+import { noop } from "../lib/utils";
+import "./styles/Button.scss";
 
 type ButtonProps = {
   label: string;
   disabled?: boolean;
-  onClick: () => any;
+  onClick: (e: any) => any;
 };
 
 type ButtonState = {};
 
 class Button extends React.Component<ButtonProps, ButtonState> {
-  private handleClick = (e: any) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (!this.props.disabled) this.props.onClick();
-  };
+  // private handleClick = (e: any) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
+  //   if (!this.props.disabled) this.props.onClick(e);
+  // };
 
   render() {
-    const { label } = this.props;
+    const { label, disabled, onClick } = this.props;
 
-    return <button onChange={this.handleClick}>{label}</button>;
+    return (
+      <button className='button' onClick={disabled ? noop : onClick}>
+        {label}
+      </button>
+    );
   }
 }
 
