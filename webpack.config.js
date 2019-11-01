@@ -16,7 +16,7 @@ const htmlOptions = {
 
 module.exports = {
   entry: {
-    "bundle.js": ["./src/index.js"]
+    "bundle.js": ["./src/index.tsx"]
   },
   module: {
     rules: [
