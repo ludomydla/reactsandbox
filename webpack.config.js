@@ -31,7 +31,7 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        use: [styleLoader, "css-loader", "sass-loader", "postcss-loader"]
+        use: [styleLoader, "css-loader", "sass-loader"]
       },
       {
         test: /\.(png|jpg|gif)$/i,
@@ -59,7 +59,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".svg"]
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".svg", ".scss", ".css"]
   },
   output: {
     path: __dirname + "/dist",
