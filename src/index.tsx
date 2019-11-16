@@ -1,38 +1,27 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import AppRouter from "./router";
-import "./main.scss";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { rootReducer } from './app/_shared/store/configureReducer'
+import AppRouter from './router'
+import './main.scss'
 
-const reducer = (state: any, action: any) => {
-  console.log("reducer", state, action);
-  switch (action.type) {
-    case "onUsernameChange":
-      return { username: action.payload, password: state.password };
-    case "onPasswordChange":
-      return { username: state.username, password: action.payload };
-    default:
-      return state;
-  }
-};
+const initialState = { username: '', password: '' }
 
 const store = createStore(
-  reducer,
-  { username: "", password: "" },
+  rootReducer,
+  initialState,
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
     (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-);
+)
 
-const app = document.getElementById("app");
-if (app) {
-  ReactDOM.render(
-    <Provider store={store}>
-      <AppRouter />
-    </Provider>,
-    app
-  );
-}
+const app = document.getElementById('app')
+ReactDOM.render(
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>,
+  app
+)
 
 // TODO
 // i18n
