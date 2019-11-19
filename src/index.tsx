@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import { rootReducer } from './app/_shared/store/configureReducer'
+import { initialState } from './app/_shared/store/configureStore'
 import AppRouter from './router'
 import './main.scss'
-
-const initialState = { username: '', password: '' }
 
 const store = createStore(
   rootReducer,

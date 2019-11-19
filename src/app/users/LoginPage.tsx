@@ -7,8 +7,7 @@ import Image from '../_shared/components/Image'
 import './LoginPage.scss'
 import * as actions from './store/actions'
 import logo from '../../assets/images/qv-arch.svg'
-import { getUserName, getPassword } from './store/getters'
-import { bindActionCreators } from 'redux'
+//import { bindActionCreators } from 'redux'
 
 type LoginPageProps = {
   username: string
@@ -27,20 +26,22 @@ class LoginPage extends React.Component<
 > {
   static mapStateToProps = (state: LoginPageProps) => {
     return {
-      username: getUserName(state),
-      password: getPassword(state)
+      username: state.username,
+      password: state.password
     }
   }
 
-  // static mapDispatchToProps = (dispatch: any) => ({
-  //   onUsernameChange: (username: string) =>
-  //     dispatch(onUsernameChange(username)),
-  //   onPasswordChange: (password: string) => dispatch(onPasswordChange(password))
-  // });
+  static mapDispatchToProps = (dispatch: any) => ({
+    onUsernameChange: (username: string) =>
+      dispatch(actions.onUsernameChange(username)),
+    onPasswordChange: (password: string) =>
+      dispatch(actions.onPasswordChange(password))
+  })
 
-  static mapDispatchToProps = (dispatch: any) => {
-    return bindActionCreators(actions, dispatch)
-  }
+  // Keeping this, until obvious need for bindActionCreator will arise
+  // static mapDispatchToProps = (dispatch: any) => {
+  //   return bindActionCreators(actions, dispatch)
+  // }
 
   private handleLogin = (e: any) => {
     e.preventDefault()

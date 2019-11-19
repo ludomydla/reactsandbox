@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-type HomePageProps = {};
-type HomePageState = {};
+type HomePageProps = {}
+type HomePageState = {}
 
 class HomePage extends React.Component<HomePageProps, HomePageState> {
   render() {
@@ -11,9 +11,11 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
         <Link to='/login'>Login</Link>
         <br />
         <Link to='/example'>Example</Link>
+        <br />
+        <Link to='/orders'>Orders</Link>
       </div>
-    );
+    )
   }
 }
 
-export default HomePage;
+export default HomePage

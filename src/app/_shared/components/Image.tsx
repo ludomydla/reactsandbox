@@ -1,17 +1,17 @@
-import React from "react";
-import { Source, Dimensions } from "../types/definitions";
+import React from 'react'
+import { Source, Dimensions } from '../types/definitions'
 
 interface ImageProps {
-  src: string;
-  alt?: string;
-  label?: string;
-  simple?: boolean;
-  source?: Source;
-  dimensions?: Dimensions;
-  className?: string;
+  src: string
+  alt?: string
+  label?: string
+  simple?: boolean
+  source?: Source
+  dimensions?: Dimensions
+  className?: string
 }
 
-type ImageState = {};
+type ImageState = {}
 
 class Image extends React.Component<ImageProps, ImageState> {
   render() {
@@ -23,21 +23,21 @@ class Image extends React.Component<ImageProps, ImageState> {
       source,
       dimensions,
       className
-    } = this.props;
+    } = this.props
 
     if (simple) {
       return (
         <div className={className ? className : undefined}>
           <img src={src} alt={alt} />
         </div>
-      );
+      )
     } else {
       return (
         <figure className={className ? className : undefined}>
           <img
             src={src}
             alt={alt}
-            height={dimensions && dimensions.height}
+            height={dimensions?.height}
             width={dimensions && dimensions.width}
           />
           <figcaption>
@@ -45,9 +45,9 @@ class Image extends React.Component<ImageProps, ImageState> {
             <cite>{source}</cite>
           </figcaption>
         </figure>
-      );
+      )
     }
   }
 }
 
-export default Image;
+export default Image
