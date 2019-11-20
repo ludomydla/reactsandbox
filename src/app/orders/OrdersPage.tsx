@@ -5,7 +5,7 @@ import { MenuCategory } from '../_shared/types/definitions'
 //import Input from '../_shared/components/Input'
 //import Button from '../_shared/components/Button'
 import Image from '../_shared/components/Image'
-//import './OrdersPage.scss'
+import './OrdersPage.scss'
 //import * as actions from './store/actions'
 //import logo from '../../assets/images/qv-arch.svg'
 //import { getUserName, getPassword } from './store/getters'
@@ -28,19 +28,21 @@ class OrdersPage extends React.Component<
     }
   }
 
-  static mapDispatchToProps = (dispatch: any) => {}
+  //static mapDispatchToProps = (dispatch: any) => {}
 
   render() {
     const { menu } = this.props
 
     return (
       <div className='order-form__page'>
-        {menu.map(category => (
-          <div>
-            <h3>{category.categoryId}</h3>
-            <Image src={category.imageUrl} simple={true} />
-          </div>
-        ))}
+        <ul className='order-form__list'>
+          {menu.map(category => (
+            <li className='order-form__category-item'>
+              <h3>{category.categoryId}</h3>
+              <Image src={category.imageUrl} simple={true} />
+            </li>
+          ))}
+        </ul>
       </div>
     )
   }

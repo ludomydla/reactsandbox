@@ -26,12 +26,12 @@ export const initialState = {
   menu: [
     {
       categoryId: 1,
-      imageUrl: 'imageUrls/cagtegory-tea.svg',
+      imageUrl: 'categories/cagtegory-tea.svg',
       children: []
     },
     {
       categoryId: 2,
-      imageUrl: 'imageUrls/cagtegory-coffee.svg',
+      imageUrl: 'categories/cagtegory-coffee.svg',
       children: [
         {
           id: 20,
@@ -65,22 +65,22 @@ export const initialState = {
     },
     {
       categoryId: 3,
-      imageUrl: 'imageUrls/cagtegory-cold-drinks.svg',
+      imageUrl: 'categories/cagtegory-cold-drinks.svg',
       children: []
     },
     {
       categoryId: 4,
-      imageUrl: 'imageUrls/cagtegory-chocolate.svg',
+      imageUrl: 'categories/cagtegory-chocolate.svg',
       children: []
     },
     {
       categoryId: 5,
-      imageUrl: 'imageUrls/cagtegory-sweets.svg',
+      imageUrl: 'categories/cagtegory-sweets.svg',
       children: []
     },
     {
       categoryId: 6,
-      imageUrl: 'imageUrls/cagtegory-salty.svg',
+      imageUrl: 'categories/cagtegory-salty.svg',
       children: []
     }
   ]
