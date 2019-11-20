@@ -1,43 +1,43 @@
-const webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-//const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 const styleLoader = /*process.env.NODE_ENV !== "production"*/ false
-  ? "style-loader"
-  : MiniCssExtractPlugin.loader;
+  ? 'style-loader'
+  : MiniCssExtractPlugin.loader
 
 const htmlOptions = {
-  template: "src/index.ejs",
+  template: 'src/index.ejs',
   templateParameters: {
-    title: "React playground"
+    title: 'React playground'
   }
-};
+}
 
 module.exports = {
   entry: {
-    "bundle.js": ["./src/index.tsx"]
+    'bundle.js': ['./src/index.tsx']
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: ['babel-loader']
       },
       {
         test: /\.tsx?$/,
-        loader: "awesome-typescript-loader"
+        loader: 'awesome-typescript-loader'
       },
       {
         test: /\.s?css$/,
-        use: [styleLoader, "css-loader", "sass-loader"]
+        use: [styleLoader, 'css-loader', 'sass-loader']
       },
       {
         test: /\.(png|jpg|gif)$/i,
         use: [
           {
-            loader: "url-loader",
+            loader: 'url-loader',
             options: {
               limit: 10000
             }
@@ -48,10 +48,10 @@ module.exports = {
         test: /\.svg$/,
         use: [
           {
-            loader: "svg-url-loader",
+            loader: 'svg-url-loader',
             options: {
               limit: 10000,
-              name: "[path][name].[ext]"
+              name: '[path][name].[ext]'
             }
           }
         ]
@@ -59,27 +59,25 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".svg", ".scss", ".css"]
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.svg', '.scss', '.css']
   },
   output: {
-    path: __dirname + "/dist",
-    publicPath: "/",
-    filename: "bundle.js"
+    path: __dirname + '/dist',
+    publicPath: '/',
+    filename: 'bundle.js'
   },
   plugins: [
     new HtmlWebpackPlugin(htmlOptions),
     new MiniCssExtractPlugin({
-      filename: "bundle.css",
-      chunkFilename: "[id].css"
+      filename: 'bundle.css',
+      chunkFilename: '[id].css'
     }),
-    // new CopyPlugin([
-    //   { from: __dirname + "/src/public/**/*", to: __dirname + "/dist/" }
-    // ]),
+    new CopyPlugin([{ from: 'src/assets', to: 'assets' }]),
     new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
-    contentBase: "./dist",
+    contentBase: './dist',
     historyApiFallback: true,
     hot: true
   }
-};
+}

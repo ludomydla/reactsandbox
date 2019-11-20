@@ -12,6 +12,11 @@ export type Dimensions = {
   width: number
 }
 
+export type Category = {
+  id: number
+  name: string
+}
+
 export type MenuCategory = {
   categoryId: number
   imageUrl: string

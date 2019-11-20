@@ -1,7 +1,7 @@
 import React from 'react'
 //import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { MenuCategory } from '../_shared/types/definitions'
+import { MenuCategory, Category } from '../_shared/types/definitions'
 //import Input from '../_shared/components/Input'
 //import Button from '../_shared/components/Button'
 import Image from '../_shared/components/Image'
@@ -13,6 +13,7 @@ import './OrdersPage.scss'
 
 type OrdersPageProps = {
   menu: Array<MenuCategory>
+  categories: Array<Category>
 }
 
 type OrdersPageDispatchProps = {}
@@ -24,22 +25,29 @@ class OrdersPage extends React.Component<
 > {
   static mapStateToProps = (state: OrdersPageProps) => {
     return {
-      menu: state.menu
+      menu: state.menu,
+      categories: state.categories
     }
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
   }
 
   //static mapDispatchToProps = (dispatch: any) => {}
 
   render() {
-    const { menu } = this.props
+    const { menu, categories } = this.props
 
     return (
       <div className='order-form__page'>
         <ul className='order-form__list'>
-          {menu.map(category => (
-            <li className='order-form__category-item'>
-              <h3>{category.categoryId}</h3>
-              <Image src={category.imageUrl} simple={true} />
+          {menu.map((category, catIndex) => (
+            <li className='order-form__category-item' key={catIndex}>
+              <Image
+                src={`assets/images/${category.imageUrl}`}
+                label={categories[category.categoryId - 1].name}
+              />
             </li>
           ))}
         </ul>

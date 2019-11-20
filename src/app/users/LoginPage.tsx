@@ -6,7 +6,7 @@ import Button from '../_shared/components/Button'
 import Image from '../_shared/components/Image'
 import './LoginPage.scss'
 import * as actions from './store/actions'
-import logo from '../../assets/images/qv-arch.svg'
+//import logo from '../../assets/images/qv-arch.svg'
 //import { bindActionCreators } from 'redux'
 
 type LoginPageProps = {
@@ -61,7 +61,11 @@ class LoginPage extends React.Component<
     return (
       <div className='login-form__page'>
         <div className='login-form__wrapper'>
-          <Image src={logo} simple={true} className='login-form__logo' />
+          <Image
+            src={'assets/images/qv-arch.svg'}
+            simple={true}
+            className='login-form__logo'
+          />
           <div className='login-form__form'>
             <Input
               placeholder='Zadaj uzivatelske meno'

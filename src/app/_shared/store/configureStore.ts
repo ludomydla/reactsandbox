@@ -23,15 +23,23 @@ export const history = createBrowserHistory()
 export const initialState = {
   username: '',
   password: '',
+  categories: [
+    { id: 1, name: 'Caj' },
+    { id: 2, name: 'Kava' },
+    { id: 3, name: 'Studene napoje' },
+    { id: 4, name: 'Cokolada' },
+    { id: 5, name: 'Sladke' },
+    { id: 6, name: 'Slane' }
+  ],
   menu: [
     {
       categoryId: 1,
-      imageUrl: 'categories/cagtegory-tea.svg',
+      imageUrl: 'category-tea.svg',
       children: []
     },
     {
       categoryId: 2,
-      imageUrl: 'categories/cagtegory-coffee.svg',
+      imageUrl: 'category-coffee.svg',
       children: [
         {
           id: 20,
@@ -65,22 +73,22 @@ export const initialState = {
     },
     {
       categoryId: 3,
-      imageUrl: 'categories/cagtegory-cold-drinks.svg',
+      imageUrl: 'category-cold-drinks.svg',
       children: []
     },
     {
       categoryId: 4,
-      imageUrl: 'categories/cagtegory-chocolate.svg',
+      imageUrl: 'category-chocolate.svg',
       children: []
     },
     {
       categoryId: 5,
-      imageUrl: 'categories/cagtegory-sweets.svg',
+      imageUrl: 'category-sweets.svg',
       children: []
     },
     {
       categoryId: 6,
-      imageUrl: 'categories/cagtegory-salty.svg',
+      imageUrl: 'category-salty.svg',
       children: []
     }
   ]
